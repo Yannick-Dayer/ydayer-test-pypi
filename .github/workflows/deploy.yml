@@ -28,8 +28,8 @@ jobs:
           pip install build
       - name: Patch the README links to point to the correct files at the current tag
         run: |
-          perl -i.bak -pe 's/\[(.*)\]\((?!http)(\.\/)?(.*)\.([a-z]+)\)/[\1](https:\/\/raw.github.com\/${{ github.repository_owner }}\/${{ github.repository }}\/${{ github.event.release.tag_name }}\/\3.\4)/g' README.md
-          perl -i.bak -pe 's/\[(.*)\]\((?!http)(\.\/)?(.*)\)/[\1](https:\/\/github.com\/${{ github.repository_owner }}\/${{ github.repository }}\/tree\/${{ github.event.release.tag_name }}\/\3)/g' README.md
+          perl -i.bak -pe 's/\[(.*)\]\((?!http)(\.\/)?(.*)\.([a-z]+)\)/[\1](https:\/\/raw.github.com\/${{ github.event.repository.owner }}\/${{ github.event.repository.name }}\/${{ github.event.release.tag_name }}\/\3.\4)/g' README.md
+          perl -i.bak -pe 's/\[(.*)\]\((?!http)(\.\/)?(.*)\)/[\1](https:\/\/github.com\/${{ github.event.repository.owner }}\/${{ github.event.repository.name }}\/tree\/${{ github.event.release.tag_name }}\/\3)/g' README.md
           rm README.md.bak
       - name: Package the project
         run: python -m build
