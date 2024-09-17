@@ -8,7 +8,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "ydayer-test-pypi"
-version = "1.0.0-post2"
+version = "1.0.0-post3"
 license = {file = "LICENSES/MIT.txt"}
 authors = [
     { name = "Yannick Dayer", email = "yannick.dayer@idiap.ch" },
